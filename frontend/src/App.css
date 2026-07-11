@@ -1,0 +1,509 @@
+.sheet {
+  max-width: 1180px;
+  margin: 48px auto;
+  padding: 0 24px 64px;
+}
+
+/* ---------- Title block (mimics an architectural drawing header) ---------- */
+
+.titleblock {
+  background: var(--deep);
+  color: #eaf0f8;
+  border-radius: 4px 4px 0 0;
+  padding: 22px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 16px;
+  border: 1px solid var(--deep);
+}
+
+.titleblock-name {
+  font-family: var(--font-display);
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #8fb2dd;
+  margin: 0 0 6px;
+}
+
+.titleblock-title {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.titleblock-meta {
+  display: flex;
+  gap: 28px;
+  font-family: var(--font-display);
+  font-size: 12px;
+}
+
+.titleblock-meta dt {
+  color: #7793bb;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 10px;
+  margin: 0 0 4px;
+}
+
+.titleblock-meta dd {
+  margin: 0;
+  color: #eaf0f8;
+}
+
+/* ---------- Main card with corner registration marks ---------- */
+
+.card {
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--line-faint);
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  padding: 40px;
+}
+
+.card::before,
+.card::after,
+.corner-tl,
+.corner-tr {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid var(--line);
+}
+
+.card::before {
+  bottom: 12px;
+  left: 12px;
+  border-right: none;
+  border-top: none;
+}
+
+.card::after {
+  bottom: 12px;
+  right: 12px;
+  border-left: none;
+  border-top: none;
+}
+
+.corner-tl,
+.corner-tr {
+  top: 12px;
+}
+
+.corner-tl {
+  left: 12px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.corner-tr {
+  right: 12px;
+  border-left: none;
+  border-bottom: none;
+}
+
+/* ---------- Stage strip ---------- */
+
+.stages {
+  display: flex;
+  gap: 0;
+  margin-bottom: 36px;
+  border: 1px solid var(--line-faint);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.stage {
+  flex: 1;
+  padding: 12px 16px;
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  background: var(--paper);
+  border-right: 1px solid var(--line-faint);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.stage:last-child {
+  border-right: none;
+}
+
+.stage-num {
+  font-weight: 600;
+}
+
+.stage.is-active {
+  background: var(--deep);
+  color: #eaf0f8;
+}
+
+.stage.is-done {
+  background: var(--stamp-green-bg);
+  color: var(--stamp-green);
+}
+
+/* ---------- Upload zone ---------- */
+
+.upload-zone {
+  border: 2px dashed var(--line);
+  border-radius: 4px;
+  padding: 56px 40px;
+  text-align: center;
+  cursor: pointer;
+  background: var(--paper);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.upload-zone.is-active {
+  background: var(--stamp-blue-bg);
+  border-color: var(--stamp-blue);
+}
+
+.upload-zone-icon {
+  width: 44px;
+  height: 44px;
+  margin: 0 auto 18px;
+  color: var(--line);
+}
+
+.upload-zone h2 {
+  font-family: var(--font-display);
+  font-size: 17px;
+  margin: 0 0 8px;
+  color: var(--ink);
+}
+
+.upload-zone p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 14px;
+}
+
+.upload-zone .hint {
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--line);
+  margin-top: 14px;
+}
+
+.selected-file {
+  margin-top: 18px;
+  background: var(--paper);
+  border: 1px solid var(--line-faint);
+  border-left: 3px solid var(--line);
+  border-radius: 0 4px 4px 0;
+  padding: 12px 16px;
+  font-family: var(--font-display);
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.selected-file .label {
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+}
+
+/* ---------- Section headings ---------- */
+
+.section-heading {
+  font-family: var(--font-display);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--line);
+  margin: 40px 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line-faint);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.section-heading .count {
+  color: var(--ink-soft);
+  font-weight: 400;
+}
+
+/* ---------- Tables ---------- */
+
+.table-wrap {
+  overflow: auto;
+  max-height: 440px;
+  border: 1px solid var(--line-faint);
+  border-radius: 4px;
+}
+
+table.manifest {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+}
+
+table.manifest thead th {
+  position: sticky;
+  top: 0;
+  background: var(--deep);
+  color: #cfe0f5;
+  font-family: var(--font-display);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: left;
+  padding: 12px 14px;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+table.manifest tbody td {
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--line-faint);
+  white-space: nowrap;
+}
+
+table.manifest tbody tr:nth-child(even) {
+  background: #f6f9fc;
+}
+
+table.manifest tbody tr:hover {
+  background: var(--stamp-blue-bg);
+}
+
+/* ---------- Ink stamp status badges ---------- */
+
+.stamp {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 5px 10px;
+  border: 1.5px solid currentColor;
+  border-radius: 3px;
+  transform: rotate(-2deg);
+  white-space: nowrap;
+}
+
+.stamp-good {
+  color: var(--stamp-green);
+  background: var(--stamp-green-bg);
+}
+
+.stamp-bad {
+  color: var(--stamp-red);
+  background: var(--stamp-red-bg);
+  transform: rotate(1.5deg);
+}
+
+.stamp-sale {
+  color: var(--stamp-blue);
+  background: var(--stamp-blue-bg);
+  transform: rotate(-1deg);
+}
+
+.stamp-pending {
+  color: var(--stamp-amber);
+  background: var(--stamp-amber-bg);
+  transform: rotate(2deg);
+}
+
+/* ---------- Summary strip ---------- */
+
+.summary-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line-faint);
+  border: 1px solid var(--line-faint);
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 36px 0 0;
+}
+
+.summary-cell {
+  background: var(--card);
+  padding: 22px 20px;
+  text-align: center;
+}
+
+.summary-cell .value {
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.summary-cell .label {
+  font-family: var(--font-display);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 6px 0 0;
+}
+
+.summary-cell.imported .value { color: var(--stamp-green); }
+.summary-cell.skipped .value { color: var(--stamp-red); }
+.summary-cell.total .value { color: var(--stamp-blue); }
+
+/* ---------- Confirm button ---------- */
+
+.confirm-row {
+  text-align: center;
+  margin-top: 32px;
+}
+
+.btn-confirm {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #eaf0f8;
+  background: var(--deep);
+  border: none;
+  padding: 14px 32px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.btn-confirm:hover:not(:disabled) {
+  background: var(--line);
+}
+
+.btn-confirm:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.btn-confirm:disabled {
+  background: #9db3cc;
+  cursor: not-allowed;
+}
+
+.btn-confirm:focus-visible {
+  outline: 2px solid var(--line);
+  outline-offset: 3px;
+}
+
+/* ---------- Loading (plotter scan) ---------- */
+
+.plotter {
+  margin-top: 32px;
+  padding: 48px 24px;
+  text-align: center;
+  border: 1px solid var(--line-faint);
+  border-radius: 4px;
+  background: var(--paper);
+}
+
+.plotter-track {
+  position: relative;
+  height: 3px;
+  background: var(--line-faint);
+  border-radius: 2px;
+  overflow: hidden;
+  max-width: 320px;
+  margin: 0 auto 22px;
+}
+
+.plotter-beam {
+  position: absolute;
+  top: 0;
+  left: -30%;
+  width: 30%;
+  height: 100%;
+  background: var(--line);
+  animation: plot-scan 1.3s ease-in-out infinite;
+}
+
+@keyframes plot-scan {
+  0% { left: -30%; }
+  50% { left: 100%; }
+  100% { left: 100%; }
+}
+
+.plotter h2 {
+  font-family: var(--font-display);
+  font-size: 15px;
+  margin: 0 0 6px;
+  color: var(--ink);
+}
+
+.plotter p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+/* ---------- Empty state ---------- */
+
+.empty-state {
+  margin-top: 32px;
+  padding: 32px;
+  text-align: center;
+  background: var(--stamp-amber-bg);
+  border: 1px solid var(--stamp-amber);
+  border-radius: 4px;
+}
+
+.empty-state h2 {
+  font-family: var(--font-display);
+  color: var(--stamp-amber);
+  margin: 0 0 8px;
+  font-size: 16px;
+}
+
+.empty-state p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 14px;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 720px) {
+  .sheet {
+    margin: 24px auto;
+    padding: 0 12px 40px;
+  }
+  .titleblock {
+    padding: 16px 18px;
+  }
+  .titleblock-title {
+    font-size: 19px;
+  }
+  .titleblock-meta {
+    gap: 16px;
+  }
+  .card {
+    padding: 20px 16px;
+  }
+  .stages {
+    flex-wrap: wrap;
+  }
+  .stage {
+    flex: 1 1 50%;
+    border-bottom: 1px solid var(--line-faint);
+  }
+  .summary-strip {
+    grid-template-columns: 1fr;
+  }
+}
