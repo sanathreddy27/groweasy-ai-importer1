@@ -5,6 +5,14 @@ Facebook Lead exports, Google Ads exports, real estate CRM exports,
 manually created spreadsheets — into GrowEasy's fixed CRM lead schema,
 using Gemini for field extraction.
 
+**Live demo:** https://groweasy-ai-importer1.vercel.app/
+**Backend API:** https://groweasy-ai-importer1.onrender.com
+**GitHub repo:** https://github.com/sanathreddy27/groweasy-ai-importer1
+
+> Note: the backend is hosted on Render's free tier, which spins down
+> after ~15 minutes of inactivity. The first request after idle time
+> may take 30–60 seconds to respond while it wakes up.
+
 ## Design
 
 The UI is built around an **architectural blueprint / import manifest**
